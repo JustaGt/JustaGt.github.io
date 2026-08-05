@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sandro Asatiani — Marketing &amp; Growth</title>
+<meta name="description" content="Sandro Asatiani builds high-converting funnels, marketing automation, and lead-generation systems on GoHighLevel." />
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-alt:#f4f4f4;
+    --ink:#0a0a0a;
+    --muted:#6d6d6d;
+    --line:#e4e4e4;
+    --line-strong:#111;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;filter:grayscale(100%) contrast(1.03)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--ink);color:#fff;padding:14px 26px;
+    font-weight:600;font-size:.9rem;border:1px solid var(--ink);
+    transition:background .2s,color .2s,transform .2s;letter-spacing:.01em;
+  }
+  .btn:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:#fff}
+
+  /* NAV */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-weight:800;letter-spacing:.02em;font-size:1rem;text-transform:uppercase}
+  .nav-links{display:flex;gap:36px}
+  .nav-links a{color:var(--muted);font-size:.86rem;font-weight:500;letter-spacing:.02em;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .nav-cta .btn{padding:11px 20px}
+  .menu-btn{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer}
+
+  /* HERO */
+  .hero{padding:150px 0 90px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--ink)}
+  h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin-bottom:26px}
+  .hero p.lead{font-size:1.12rem;color:var(--muted);max-width:46ch;margin-bottom:36px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bg-alt)}
+  .hero-img img{width:100%;height:100%;object-fit:cover}
+  .hero-badge{position:absolute;left:0;bottom:0;background:var(--ink);color:#fff;padding:16px 22px;font-size:.8rem;letter-spacing:.04em}
+  .hero-badge b{display:block;font-size:1.5rem;letter-spacing:-.02em;font-weight:800}
+
+  /* MARQUEE / TRUST */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .trust-inner{display:grid;grid-template-columns:repeat(4,1fr)}
+  .trust-item{padding:34px 20px;text-align:center;border-right:1px solid var(--line)}
+  .trust-item:last-child{border-right:none}
+  .trust-item b{display:block;font-size:2.4rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .trust-item span{color:var(--muted);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-top:8px;display:block}
+
+  /* SECTIONS */
+  section{padding:104px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:60px;flex-wrap:wrap}
+  .sec-tag{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  h2{font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.03em;font-weight:800;line-height:1.05;max-width:16ch}
+  .sec-head .sub{color:var(--muted);max-width:34ch;font-size:1rem}
+
+  /* SERVICES */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .svc{padding:40px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .25s}
+  .svc:hover{background:var(--bg-alt)}
+  .svc .num{font-size:.8rem;color:var(--muted);letter-spacing:.1em;margin-bottom:26px}
+  .svc h3{font-size:1.28rem;font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+  .svc p{color:var(--muted);font-size:.95rem}
+
+  /* FEATURE BAND */
+  .feature{position:relative;height:60vh;min-height:420px;overflow:hidden;background:#000}
+  .feature img{width:100%;height:100%;object-fit:cover;opacity:.72}
+  .feature-cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;color:#fff}
+  .feature-cap .wrap{width:100%}
+  .feature-cap h2{color:#fff;max-width:20ch}
+  .feature-cap p{color:rgba(255,255,255,.8);max-width:44ch;margin-top:16px;font-size:1.05rem}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+  .about-img{aspect-ratio:4/5;overflow:hidden;background:var(--bg-alt)}
+  .about-img img{width:100%;height:100%;object-fit:cover}
+  .about h2{margin-bottom:20px}
+  .about p{color:var(--muted);font-size:1.06rem;margin-bottom:16px}
+  .about ul{list-style:none;margin-top:26px;display:grid;gap:14px}
+  .about li{display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--line);font-size:.98rem}
+  .about li b{min-width:24px}
+
+  /* WORK GALLERY */
+  .gallery{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+  .gallery .g-item{overflow:hidden;background:var(--bg-alt);position:relative}
+  .gallery .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .gallery .g-item:hover img{transform:scale(1.04)}
+  .g-tall{grid-row:span 2;aspect-ratio:4/5}
+  .g-wide{aspect-ratio:16/10}
+  .g-cap{position:absolute;left:16px;bottom:14px;color:#fff;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+
+  /* PROCESS */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink)}
+  .step{padding:32px 24px 32px 0;border-right:1px solid var(--line)}
+  .step:last-child{border-right:none}
+  .step .n{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
+  .step h4{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.9rem}
+
+  /* CTA */
+  .cta{background:var(--ink);color:#fff;padding:110px 0}
+  .cta h2{color:#fff;max-width:22ch;margin:0 auto 20px;text-align:center}
+  .cta .sec-tag{color:rgba(255,255,255,.6);text-align:center}
+  .cta p{color:rgba(255,255,255,.72);text-align:center;max-width:46ch;margin:0 auto 40px;font-size:1.08rem}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta .btn{background:#fff;color:var(--ink);border-color:#fff}
+  .cta .btn:hover{background:transparent;color:#fff}
+  .cta .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+  .cta .btn-outline:hover{background:#fff;color:var(--ink)}
+
+  /* FOOTER */
+  footer{padding:50px 0;border-top:1px solid var(--line)}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .foot-links{display:flex;gap:26px;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);font-size:.86rem}
+  .foot-links a:hover{color:var(--ink)}
+  .foot small{color:var(--muted);font-size:.82rem}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .about{grid-template-columns:1fr;gap:34px}
+    .services{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .menu-btn{display:block}
+    section{padding:76px 0}
+    .steps{grid-template-columns:1fr 1fr}
+    .step{border-bottom:1px solid var(--line)}
+  }
+  @media(max-width:560px){
+    .services,.trust-inner{grid-template-columns:1fr}
+    .trust-item{border-right:none;border-bottom:1px solid var(--line)}
+    .gallery{grid-template-columns:1fr}
+    .g-tall{grid-row:auto;aspect-ratio:4/5}
+    .steps{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">Sandro Asatiani</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#contact" class="btn">Book a Call</a>
+      </div>
+      <button class="menu-btn" aria-label="menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Marketing &amp; Growth</span>
+        <h1>Systems that grow your business.</h1>
+        <p class="lead">High-converting funnels, marketing automation, and lead-generation built end-to-end on GoHighLevel — so you book more clients while you focus on the work.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Book a Free Call</a>
+          <a href="#services" class="btn btn-outline">What I Do</a>
+        </div>
+      </div>
+      <div class="hero-img reveal">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GE32ECvZHeYzSVJn6KxjOPfvqw/hf_20260805_193547_51a7790c-57e5-4617-8e04-bd9cb6cdc564.png" alt="Modern minimalist workspace" />
+        <div class="hero-badge"><b>50+</b> funnels launched</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap"><div class="trust-inner">
+    <div class="trust-item"><b>50+</b><span>Projects delivered</span></div>
+    <div class="trust-item"><b>3.4×</b><span>Avg. conversion lift</span></div>
+    <div class="trust-item"><b>$2M+</b><span>Pipeline generated</span></div>
+    <div class="trust-item"><b>98%</b><span>Client satisfaction</span></div>
+  </div></div>
+</div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-tag">What I Do</div>
+        <h2>Growth systems, built to convert.</h2>
+      </div>
+      <p class="sub">Everything to turn strangers into booked calls — designed, automated, and optimized in one place.</p>
+    </div>
+    <div class="services reveal">
+      <div class="svc"><div class="num">01</div><h3>Sales Funnels</h3><p>High-converting landing pages engineered to turn clicks into qualified leads and booked appointments.</p></div>
+      <div class="svc"><div class="num">02</div><h3>Marketing Automation</h3><p>Automated email &amp; SMS follow-up, pipelines, and workflows in GoHighLevel that nurture leads 24/7.</p></div>
+      <div class="svc"><div class="num">03</div><h3>Lead Generation</h3><p>Paid and organic funnels that fill your calendar with the right prospects — not just traffic.</p></div>
+      <div class="svc"><div class="num">04</div><h3>CRM &amp; GoHighLevel Setup</h3><p>Full CRM buildout: pipelines, calendars, tags, and reporting so nothing slips through the cracks.</p></div>
+      <div class="svc"><div class="num">05</div><h3>Email &amp; SMS Campaigns</h3><p>Done-for-you nurture and promo campaigns that re-engage your list and drive repeat revenue.</p></div>
+      <div class="svc"><div class="num">06</div><h3>Conversion Optimization</h3><p>Data-driven testing and tracking to get more results from the traffic you already have.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE BAND -->
+<div class="feature">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GE32ECvZHeYzSVJn6KxjOPfvqw/hf_20260805_193547_c4d8d622-893d-42a4-84b1-39b9886badac.png" alt="Marketing analytics" />
+  <div class="feature-cap">
+    <div class="wrap reveal">
+      <h2>Decisions driven by data.</h2>
+      <p>Every funnel, campaign, and automation is tracked and optimized against the numbers that matter — leads, bookings, and revenue.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-img reveal">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GE32ECvZHeYzSVJn6KxjOPfvqw/hf_20260805_193547_2ffc4fb4-72b0-4317-b6de-476009d8e834.png" alt="Sandro Asatiani" />
+      </div>
+      <div class="reveal">
+        <div class="sec-tag">About</div>
+        <h2>Hi, I'm Sandro.</h2>
+        <p>I build marketing and automation systems that help businesses attract, convert, and retain more customers — without the guesswork. My focus is simple: measurable growth and systems that keep working long after launch.</p>
+        <ul>
+          <li><b>01</b> GoHighLevel specialist — funnels, automations, and full CRM buildouts.</li>
+          <li><b>02</b> Obsessed with conversion: every page and workflow earns its place.</li>
+          <li><b>03</b> Straightforward, transparent communication from kickoff to launch.</li>
+          <li><b>04</b> Partner mindset — your growth is the metric that matters.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-tag">Selected Work</div>
+        <h2>A look at the craft.</h2>
+      </div>
+      <p class="sub">Strategy, systems, and design working together toward one goal — growth.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="g-item g-tall">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GE32ECvZHeYzSVJn6KxjOPfvqw/hf_20260805_193547_b974b812-ad85-46c4-be88-94339b63b6a0.png" alt="Strategy session" />
+        <span class="g-cap">Strategy &amp; Planning</span>
+      </div>
+      <div class="g-item g-wide">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GE32ECvZHeYzSVJn6KxjOPfvqw/hf_20260805_193547_c4d8d622-893d-42a4-84b1-39b9886badac.png" alt="Analytics" />
+        <span class="g-cap">Analytics &amp; Tracking</span>
+      </div>
+      <div class="g-item g-wide">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GE32ECvZHeYzSVJn6KxjOPfvqw/hf_20260805_193547_f4ea13f8-f4d0-4318-a27d-d387d312b1fa.png" alt="Design systems" />
+        <span class="g-cap">Design &amp; Systems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-tag">How It Works</div>
+        <h2>A simple path to results.</h2>
+      </div>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="n">01</div><h4>Discover</h4><p>We map your goals, audience, and offer to find the biggest growth levers.</p></div>
+      <div class="step"><div class="n">02</div><h4>Design</h4><p>I build your funnel, automations, and CRM tailored to your business.</p></div>
+      <div class="step"><div class="n">03</div><h4>Launch</h4><p>We go live, connect ads and follow-up, and start capturing leads.</p></div>
+      <div class="step"><div class="n">04</div><h4>Optimize</h4><p>Ongoing testing and reporting to keep improving your numbers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta">
+  <div class="wrap reveal">
+    <div class="sec-tag">Let's Talk</div>
+    <h2>Ready to grow your business?</h2>
+    <p>Book a free strategy call and I'll show you exactly how to turn more of your traffic into booked clients.</p>
+    <div class="cta-actions">
+      <a href="#" data-book class="btn">Book a Free Call</a>
+      <a href="mailto:sandroasatiani2007@gmail.com" class="btn btn-outline">Email Me</a>
+      <a href="tel:PHONE_PLACEHOLDER" class="btn btn-outline">Call Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="logo">Sandro Asatiani</div>
+      <div class="foot-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="mailto:sandroasatiani2007@gmail.com">Contact</a>
+      </div>
+      <small>© <span id="yr"></span> Sandro Asatiani</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelector('.menu-btn').addEventListener('click',()=>{
+    document.getElementById('services').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
