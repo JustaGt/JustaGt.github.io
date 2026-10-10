@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apollo's Aquarium Solutions | Aquarium Maintenance in Houston</title>
+<meta name="description" content="Aquarium maintenance, water testing and setups for freshwater, saltwater and ponds across Houston. Owner operated since 2021.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1114; --ink2:#141c20; --paper:#f4f2ed; --paper2:#ebe8e1;
+  --line:rgba(11,17,20,.12); --line-d:rgba(244,242,237,.14);
+  --muted:#5f676b; --muted-d:rgba(244,242,237,.62);
+  --accent:#4f9a8f;
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em}
+.label{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;height:52px;padding:0 1.6rem;font-weight:600;font-size:.92rem;letter-spacing:.01em;border:1px solid currentColor;transition:background .25s,color .25s,border-color .25s}
+.btn svg{width:14px;height:14px;transition:transform .25s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn-solid:hover{background:transparent;color:var(--paper)}
+.btn-line{color:var(--paper);border-color:rgba(244,242,237,.4)}
+.btn-line:hover{border-color:var(--paper)}
+.btn-ink{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-ink:hover{background:transparent;color:var(--ink)}
+
+/* nav */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:40;color:var(--paper);transition:background .35s,color .35s,border-color .35s;border-bottom:1px solid transparent}
+header.nav.solid{background:rgba(244,242,237,.94);backdrop-filter:blur(12px);color:var(--ink);border-color:var(--line)}
+.nav-in{height:78px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:"Instrument Serif",serif;font-weight:400;font-size:1.65rem;letter-spacing:.01em}
+.brand span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;margin-top:4px;opacity:.75}
+.menu{display:flex;gap:2.4rem;font-size:.88rem;font-weight:500}
+.menu a{opacity:.8;transition:opacity .2s}
+.menu a:hover{opacity:1}
+.nav-cta{font-size:.85rem;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px}
+@media(max-width:860px){.menu{display:none}}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:640px;color:var(--paper);display:flex;flex-direction:column;justify-content:flex-end}
+.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-bg img{transform:scale(1.06);animation:settle 2.4s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,17,20,.6) 0%,rgba(11,17,20,0) 40%),linear-gradient(180deg,rgba(11,17,20,.5) 0%,rgba(11,17,20,0) 30%,rgba(11,17,20,.75) 100%)}
+.hero-bg img{object-position:50% 50%;transform-origin:center}
+@media(min-width:900px){.hero-bg{left:30%}.hero-bg:before{content:"";position:absolute;left:0;top:0;bottom:0;width:30%;background:linear-gradient(90deg,#0b1114,transparent);z-index:1}}
+.hero{background:#0b1114}
+@media(max-width:760px){.hero-bg:after{background:linear-gradient(180deg,rgba(11,17,20,.6),rgba(11,17,20,.75) 60%,rgba(11,17,20,.9))}}
+.hero-content{position:relative;z-index:2;padding-bottom:56px;width:100%}
+.hero .label{color:rgba(244,242,237,.75)}
+.hero h1{font-size:clamp(3.2rem,8.5vw,7.4rem);line-height:.95;margin:1.2rem 0 1.6rem;max-width:11ch}
+.hero h1 i{color:#bfe3dc}
+.hero-row{display:flex;flex-direction:column;align-items:flex-start;gap:2rem}
+.hero p{max-width:440px;color:rgba(244,242,237,.82);font-size:1.05rem}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.facts{position:relative;border-top:1px solid var(--line-d);display:grid;grid-template-columns:repeat(4,1fr)}
+.facts div{padding:22px 0;font-size:.84rem;color:rgba(244,242,237,.7)}
+.facts div+div{padding-left:24px;border-left:1px solid var(--line-d)}
+.facts strong{display:block;color:var(--paper);font-weight:600;font-size:.95rem}
+@media(max-width:760px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(3){padding-left:0;border-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line-d)}}
+
+section{padding:130px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;margin-bottom:70px;align-items:end}
+.sec-head h2{font-size:clamp(2.6rem,5vw,4.2rem);line-height:1}
+.sec-head p{color:var(--muted);max-width:520px;font-size:1.05rem;justify-self:end}
+.num{font-family:"Instrument Serif",serif;font-size:1rem;color:var(--accent);margin-right:.6rem}
+@media(max-width:860px){.sec-head{grid-template-columns:1fr}.sec-head p{justify-self:start}section{padding:90px 0}}
+
+/* services */
+.svc-list{border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:80px 1.1fr 1.6fr 40px;gap:2rem;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--line);transition:padding .3s}
+.svc:hover{padding-left:12px}
+.svc .n{font-family:"Instrument Serif",serif;color:var(--muted);font-size:1.1rem}
+.svc h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:2rem;line-height:1.1}
+.svc p{color:var(--muted)}
+.svc .arr{justify-self:end;opacity:.3;transition:opacity .3s,transform .3s}
+.svc:hover .arr{opacity:1;transform:translateX(4px)}
+@media(max-width:760px){.svc{grid-template-columns:44px 1fr}.svc p{grid-column:2}.svc .arr{display:none}}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;padding:0 14px}
+.g{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--ink)}
+.g:first-child{aspect-ratio:auto}
+.g img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.g:hover img{transform:scale(1.04)}
+.g figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px;color:var(--paper);background:linear-gradient(0deg,rgba(11,17,20,.75),transparent);display:flex;justify-content:space-between;align-items:flex-end}
+.g figcaption b{font-family:"Instrument Serif",serif;font-weight:400;font-size:1.7rem;line-height:1}
+.g figcaption span{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+@media(max-width:860px){.gallery{grid-template-columns:1fr}.g,.g:first-child{aspect-ratio:4/3}}
+
+/* pricing */
+#pricing{background:var(--ink);color:var(--paper)}
+#pricing .label,#pricing .sec-head p{color:var(--muted-d)}
+.tabs{display:flex;gap:2rem;border-bottom:1px solid var(--line-d);margin-bottom:0}
+.tabs button{background:none;border:0;color:var(--muted-d);font:600 .95rem Manrope,sans-serif;padding:0 0 18px;cursor:pointer;position:relative}
+.tabs button.on{color:var(--paper)}
+.tabs button.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:26px 0;border-bottom:1px solid var(--line-d);font-weight:500}
+thead th{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-d);font-weight:600;padding:22px 0}
+td:first-child{width:34%}
+td .size{font-family:"Instrument Serif",serif;font-size:1.7rem;line-height:1}
+td .sub{display:block;font-size:.82rem;color:var(--muted-d);margin-top:6px}
+td.p{font-family:"Instrument Serif",serif;font-size:2rem}
+td.p small{font-family:Manrope,sans-serif;font-size:.78rem;color:var(--muted-d);margin-left:4px}
+tr.hl td.p{color:#bfe3dc}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:rgba(244,242,237,.03)}
+.price-foot{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:70px}
+.price-foot h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:1.9rem;margin-bottom:1.2rem}
+.incl li{list-style:none;padding:12px 0;border-bottom:1px solid var(--line-d);color:rgba(244,242,237,.85);display:flex;gap:14px}
+.incl li:before{content:"";flex:none;width:6px;height:6px;margin-top:10px;background:var(--accent);border-radius:50%}
+.addon{display:flex;justify-content:space-between;gap:1rem;padding:12px 0;border-bottom:1px solid var(--line-d)}
+.addon span:first-child{color:rgba(244,242,237,.85)}
+.addon span:last-child{font-weight:600;white-space:nowrap}
+.fine{margin-top:40px;font-size:.8rem;color:var(--muted-d)}
+@media(max-width:760px){
+  .price-foot{grid-template-columns:1fr;gap:3rem}
+  th,td{padding:18px 0}td.p{font-size:1.5rem}td .size{font-size:1.35rem}
+  thead th:nth-child(2),td:nth-child(2){display:none}
+}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{padding:34px 28px 0 0}
+.step+.step{padding-left:28px;border-left:1px solid var(--line)}
+.step .serif{font-size:3.2rem;line-height:1;color:var(--accent)}
+.step h3{font-size:1.05rem;font-weight:600;margin:1.4rem 0 .5rem}
+.step p{color:var(--muted);font-size:.95rem}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr;row-gap:40px}.step:nth-child(3){padding-left:0;border-left:0}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.step,.step+.step{padding-left:0;border-left:0}}
+
+/* about */
+#about{background:var(--paper2)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.about-img{aspect-ratio:4/5;overflow:hidden}
+.about blockquote{font-family:"Instrument Serif",serif;font-size:clamp(2rem,3.6vw,3rem);line-height:1.12;margin:1.6rem 0 2rem}
+.about p{color:var(--muted);margin-bottom:1rem;max-width:480px}
+.areas{margin-top:2rem;padding-top:1.6rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+.areas b{color:var(--ink);font-weight:600}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:3rem}}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:2rem;padding:28px 0;font-family:"Instrument Serif",serif;font-size:1.6rem;line-height:1.2}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:14px;height:14px;position:relative}
+summary i:before,summary i:after{content:"";position:absolute;left:0;top:6px;width:14px;height:1.5px;background:var(--ink);transition:transform .3s}
+summary i:after{transform:rotate(90deg)}
+details[open] summary i:after{transform:rotate(0)}
+details p{color:var(--muted);max-width:680px;padding:0 0 28px}
+
+/* quote */
+#quote{background:var(--ink);color:var(--paper)}
+.q{display:grid;grid-template-columns:1fr 1.15fr;gap:6rem}
+.q h2{font-size:clamp(2.8rem,5.5vw,4.6rem);line-height:1;margin:1.2rem 0 1.6rem}
+.q .label{color:var(--muted-d)}
+.q p{color:var(--muted-d);max-width:400px}
+.contact{margin-top:3rem;border-top:1px solid var(--line-d)}
+.contact div{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line-d);font-size:.92rem}
+.contact span{color:var(--muted-d)}
+form{display:grid;grid-template-columns:1fr 1fr;column-gap:2.2rem;row-gap:2rem;align-content:start}
+form .full{grid-column:1/-1}
+form label{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-d);font-weight:600;margin-bottom:.5rem}
+form input,form select,form textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(244,242,237,.3);color:var(--paper);font:500 1rem Manrope,sans-serif;padding:.6rem 0;border-radius:0;transition:border-color .2s}
+form select option{color:var(--ink)}
+form textarea{resize:vertical;min-height:90px}
+form input:focus,form select:focus,form textarea:focus{outline:0;border-color:var(--paper)}
+form input::placeholder,form textarea::placeholder{color:rgba(244,242,237,.3)}
+form .btn{justify-self:start;cursor:pointer;font-family:Manrope,sans-serif}
+.sent{display:none;grid-column:1/-1;color:#bfe3dc;font-weight:500}
+@media(max-width:860px){.q{grid-template-columns:1fr;gap:3.5rem}form{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--line-d);padding:34px 0;font-size:.82rem}
+.f{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.f .brand{color:var(--paper)}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><b>Apollo's</b><span>Aquarium Solutions</span></a>
+    <nav class="menu"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
+    <a href="#quote" class="nav-cta">Request a quote</a>
+  </div>
+</header>
+
+<section class="hero" id="top" style="padding:0">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1504472478235-9bc48ba4d60f?auto=format&fit=crop&w=2400&q=80" alt="Saltwater aquarium with a yellow tang over purple coral"></div>
+  <div class="wrap hero-content">
+    <span class="label">Houston, Texas &nbsp;/&nbsp; Since 2021</span>
+    <h1 class="serif">Aquarium care, <i>handled.</i></h1>
+    <div class="hero-row">
+      <p>Scheduled maintenance, water testing and full setups for freshwater, saltwater and ponds. One owner, every visit, across the Houston area.</p>
+      <div class="hero-btns">
+        <a href="#quote" class="btn btn-solid">Request a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+        <a href="#pricing" class="btn btn-line">View pricing</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="position:relative;z-index:2;width:100%">
+    <div class="facts">
+      <div><strong>5+ years</strong>Serving Houston</div>
+      <div><strong>Fresh, salt &amp; pond</strong>Every type of system</div>
+      <div><strong>Owner operated</strong>Same person each visit</div>
+      <div><strong>Flexible plans</strong>Weekly to monthly</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label"><span class="num">01</span>Services</span><h2 class="serif" style="margin-top:1rem">What we take care of</h2></div>
+      <p>Everything a healthy tank needs, done on a schedule that fits your home or business. We bring the water, the equipment and the experience.</p>
+    </div>
+    <div class="svc-list">
+      <a href="#quote" class="svc rv"><span class="n">i.</span><h3>Routine maintenance</h3><p>Water changes, glass and algae cleaning, substrate vacuuming and a full system check on every visit.</p><svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      <a href="#quote" class="svc rv"><span class="n">ii.</span><h3>Water testing</h3><p>pH, ammonia, nitrite and nitrate on every visit. Salinity, alkalinity and calcium for reef systems.</p><svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      <a href="#quote" class="svc rv"><span class="n">iii.</span><h3>Equipment service</h3><p>Filters, pumps, heaters, skimmers and lighting inspected, cleaned and replaced before they fail.</p><svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      <a href="#quote" class="svc rv"><span class="n">iv.</span><h3>New installations</h3><p>Planning, equipment, aquascaping and stocking for new tanks. Set up correctly from day one.</p><svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      <a href="#quote" class="svc rv"><span class="n">v.</span><h3>Restoration</h3><p>Cloudy water, algae outbreaks or a tank that has been neglected. We reset it and bring it back.</p><svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      <a href="#quote" class="svc rv"><span class="n">vi.</span><h3>Pond care</h3><p>Koi ponds and water features cleaned, balanced and serviced through every Houston season.</p><svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="gallery">
+  <figure class="g rv"><img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=1400&q=80" alt="Reef aquarium with soft and hard corals" loading="lazy"><figcaption><b>Saltwater &amp; reef</b><span>01</span></figcaption></figure>
+  <figure class="g rv"><img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=1000&q=80" alt="Goldfish" loading="lazy"><figcaption><b>Freshwater</b><span>02</span></figcaption></figure>
+  <figure class="g rv"><img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=1000&q=80" alt="Freshwater tank with fish and bubbles" loading="lazy"><figcaption><b>Home &amp; office</b><span>03</span></figcaption></figure>
+</div>
+
+<section id="pricing" style="margin-top:130px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label"><span class="num">02</span>Pricing</span><h2 class="serif" style="margin-top:1rem">Priced by tank size</h2></div>
+      <p>Straightforward per visit rates. The more often we come out, the less each visit costs. No contracts.</p>
+    </div>
+    <div class="rv">
+      <div class="tabs" id="tabs"><button class="on" data-t="fresh">Freshwater</button><button data-t="salt">Saltwater &amp; reef</button></div>
+      <table>
+        <thead><tr><th>Tank size</th><th>Monthly</th><th>Every 2 weeks</th><th>Weekly</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="price-foot">
+      <div class="rv">
+        <h3>Every visit includes</h3>
+        <ul class="incl">
+          <li>Partial water change with conditioned water</li>
+          <li>Glass, decor and substrate cleaning</li>
+          <li>Water parameter testing</li>
+          <li>Filter and equipment inspection</li>
+          <li>Livestock health check and visit notes</li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h3>Additional services</h3>
+        <div class="addon"><span>One time deep clean</span><span>from $149</span></div>
+        <div class="addon"><span>New tank installation</span><span>from $199</span></div>
+        <div class="addon"><span>Vacation feeding</span><span>$35 per visit</span></div>
+        <div class="addon"><span>Pond service</span><span>Quoted on site</span></div>
+        <div class="addon"><span>Systems over 150 gallons</span><span>Quoted on site</span></div>
+      </div>
+    </div>
+    <p class="fine">Rates shown are sample pricing for this preview. Final rates are set by Apollo's Aquarium Solutions. Filter media and specialty additives billed at cost.</p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label"><span class="num">03</span>Process</span><h2 class="serif" style="margin-top:1rem">How it works</h2></div>
+      <p>Getting started takes one message. From there your tank is on a schedule and off your list.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="serif">1</span><h3>Send a request</h3><p>Tell us your tank size, water type and what you need.</p></div>
+      <div class="step rv"><span class="serif">2</span><h3>Get a clear quote</h3><p>Fixed per visit pricing based on your system. Nothing hidden.</p></div>
+      <div class="step rv"><span class="serif">3</span><h3>First visit</h3><p>A full assessment, water testing and a complete service.</p></div>
+      <div class="step rv"><span class="serif">4</span><h3>Ongoing care</h3><p>We show up on schedule and send notes after every visit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="about-img rv"><img src="https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?auto=format&fit=crop&w=1200&q=80" alt="Yellow tang in an aquarium" loading="lazy"></div>
+    <div class="rv">
+      <span class="label"><span class="num">04</span>About</span>
+      <blockquote>"From freshwater, saltwater and ponds, the list flows on."</blockquote>
+      <p>Apollo's Aquarium Solutions was founded in Houston in 2021 by Alexander Lopez. Every system is serviced by the owner, so you always know who is in your home or business and who is responsible for your tank.</p>
+      <p>Residential tanks, office and lobby displays, restaurants and backyard ponds.</p>
+      <div class="areas"><b>Service area</b> &nbsp; Houston, The Heights, Montrose, River Oaks, Bellaire, Memorial, Katy, Sugar Land, Pearland, Cypress, Spring and The Woodlands.</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label"><span class="num">05</span>FAQ</span><h2 class="serif" style="margin-top:1rem">Common questions</h2></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>How often should my tank be serviced?<i></i></summary><p>Most freshwater tanks do well every two weeks. Reef systems and heavily stocked tanks usually need weekly care. We recommend a schedule after the first visit.</p></details>
+      <details><summary>Do I need to be home during visits?<i></i></summary><p>No. Many clients provide a key or entry code. Notes are sent after every visit so you know exactly what was done.</p></details>
+      <details><summary>Do you bring water and supplies?<i></i></summary><p>Yes. Conditioned water, test kits and cleaning supplies are included. Filter media and specialty additives are billed at cost.</p></details>
+      <details><summary>Do you service businesses?<i></i></summary><p>Yes. Offices, lobbies, restaurants, clinics and retail. Larger and commercial systems are quoted after a site visit.</p></details>
+      <details><summary>Do you take care of ponds?<i></i></summary><p>Yes. Koi ponds and water features receive cleaning, pump and filter service and seasonal water checks.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="quote">
+  <div class="wrap q">
+    <div class="rv">
+      <span class="label"><span class="num">06</span>Contact</span>
+      <h2 class="serif">Let's talk about your tank.</h2>
+      <p>Send a few details and you will hear back with pricing and the next available visit.</p>
+      <div class="contact">
+        <div><span>Service area</span>Greater Houston</div>
+        <div><span>Systems</span>Freshwater, saltwater, ponds</div>
+        <div><span>Owner</span>Alexander Lopez</div>
+      </div>
+    </div>
+    <form id="qf" class="rv">
+      <div><label for="n">Name</label><input id="n" required placeholder="Full name"></div>
+      <div><label for="p">Phone</label><input id="p" type="tel" required placeholder="(713) 555 0123"></div>
+      <div><label for="e">Email</label><input id="e" type="email" placeholder="you@email.com"></div>
+      <div><label for="z">Zip code</label><input id="z" placeholder="77002"></div>
+      <div><label for="ts">Tank size</label><select id="ts"><option>Up to 29 gallons</option><option>30 to 55 gallons</option><option>56 to 90 gallons</option><option>91 to 150 gallons</option><option>Over 150 gallons</option></select></div>
+      <div><label for="wt">System</label><select id="wt"><option>Freshwater</option><option>Saltwater or reef</option><option>Pond</option><option>Not sure</option></select></div>
+      <div class="full"><label for="m">Details</label><textarea id="m" placeholder="Regular maintenance, a deep clean, a new setup..."></textarea></div>
+      <button type="submit" class="btn btn-solid full">Send request <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
+      <p class="sent" id="sent">Thank you. Your request has been received and we will be in touch shortly.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f">
+    <a href="#top" class="brand"><b>Apollo's</b><span>Aquarium Solutions</span></a>
+    <div>Aquarium and pond care across Houston, Texas</div>
+    <div>&copy; <span id="yr"></span> Apollo's Aquarium Solutions</div>
+  </div>
+</footer>
+
+<script>
+const SIZES=[["Up to 29 gal","Nano and small tanks"],["30 to 55 gal","Standard home tanks"],["56 to 90 gal","Large displays"],["91 to 150 gal","Showpiece systems"],["Over 150 gal","Custom and commercial"]];
+const BASE={fresh:[65,85,110,140,null],salt:[85,110,140,175,null]};
+const ADJ=[1.15,1,.9];
+const r5=n=>Math.round(n/5)*5;
+function render(t){
+  document.getElementById("rows").innerHTML=SIZES.map((s,i)=>{
+    const b=BASE[t][i];
+    const cells=ADJ.map(a=>b==null?'<td class="p" style="font-size:1.2rem">Quote</td>':`<td class="p">$${r5(b*a)}<small>/ visit</small></td>`).join("");
+    return `<tr class="${i==1?'hl':''}"><td><span class="size">${s[0]}</span><span class="sub">${s[1]}</span></td>${cells}</tr>`}).join("");
+}
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("on"));b.classList.add("on");render(b.dataset.t)});
+render("fresh");
+
+const nav=document.getElementById("nav");
+const onScroll=()=>nav.classList.toggle("solid",scrollY>innerHeight*.75);addEventListener("scroll",onScroll);onScroll();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(el.parentElement.querySelectorAll(":scope > .rv").length>2?(Array.from(el.parentElement.children).indexOf(el)%4)*80:0)+"ms";io.observe(el)});
+
+document.getElementById("qf").addEventListener("submit",e=>{e.preventDefault();document.getElementById("sent").style.display="block";e.target.querySelector("button").disabled=true});
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
