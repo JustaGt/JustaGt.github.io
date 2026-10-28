@@ -165,6 +165,35 @@ input[type=range]{flex:1;accent-color:#bfe3dc}
 .total b{font-family:"Instrument Serif",serif;font-weight:400;font-size:4rem;line-height:1;color:#bfe3dc}
 .receipt .btn{width:100%;justify-content:center;margin-top:26px}
 .receipt .fine{margin-top:16px}
+.labor{display:grid;grid-template-columns:1fr 1.15fr;gap:5rem;margin-top:80px;align-items:start}
+.labor h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:2.4rem;line-height:1.05;margin:1rem 0 .8rem}
+.labor p{color:var(--muted-d);max-width:470px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2rem}
+.split div{border:1px solid var(--line-d);padding:20px}
+.split b{display:block;font-weight:600;margin-bottom:.35rem}
+.split span{display:block;font-size:.88rem;color:var(--muted-d);line-height:1.55}
+.tiers{border-top:1px solid var(--line-d)}
+.tier{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:26px 0;border-bottom:1px solid var(--line-d)}
+.tier .size{font-family:"Instrument Serif",serif;font-size:1.7rem;line-height:1}
+.tier .sub{display:block;font-size:.82rem;color:var(--muted-d);margin-top:6px}
+.tier .p{font-family:"Instrument Serif",serif;font-size:2.6rem;line-height:1;color:#bfe3dc;white-space:nowrap}
+.tier .p small{font-family:Manrope,sans-serif;font-size:.78rem;color:var(--muted-d);margin-left:4px}
+.tiers .fine{margin-top:18px}
+.finder{border:1px solid var(--line-d);padding:20px 22px;margin-top:-.4rem}
+.finder .fl{margin-bottom:1rem}
+.dims{display:flex;align-items:flex-end;gap:.8rem}
+.dims label{flex:1;min-width:0;display:flex;flex-direction:column;gap:.35rem;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-d);font-weight:600}
+.dims input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(244,242,237,.3);color:var(--paper);font:500 1.2rem Manrope,sans-serif;padding:.3rem 0;border-radius:0;-moz-appearance:textfield}
+.dims input::-webkit-outer-spin-button,.dims input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.dims input:focus{outline:0;border-color:var(--paper)}
+.dims input::placeholder{color:rgba(244,242,237,.25)}
+.dims i{font-style:normal;color:var(--muted-d);padding-bottom:.4rem}
+.dims em{font-style:normal;color:var(--muted-d);font-size:.85rem;padding-bottom:.5rem}
+.dimout{margin-top:1rem;font-size:.86rem;color:var(--muted-d)}
+.dimout b{color:#bfe3dc;font-weight:600}
+.labnote{display:none;margin-top:.7rem;font-size:.82rem;color:#bfe3dc}
+@media(max-width:860px){.labor{grid-template-columns:1fr;gap:3rem}}
+@media(max-width:520px){.split{grid-template-columns:1fr}.tier .size{font-size:1.35rem}.tier .p{font-size:2rem}.finder{padding:18px 16px}.dims{gap:.55rem}}
 @media(max-width:860px){.rates{grid-template-columns:1fr}.rate+.rate{padding-left:0;border-left:0;border-top:1px solid var(--line-d)}.calc{grid-template-columns:1fr;gap:3rem}.receipt{position:static}}
 @media(max-width:760px){
   .price-foot{grid-template-columns:1fr;gap:3rem}
@@ -357,11 +386,28 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
   <div class="wrap">
     <div class="sec-head rv">
       <div><span class="label"><span class="num">02</span>Pricing</span><h2 class="serif" style="margin-top:1rem">Priced by the gallon</h2></div>
-      <p>One simple rate based on the size of your tank. No contracts and no surprises. Use the calculator below to see your price before you book.</p>
+      <p>Priced by the size of your tank, with no contracts and no surprises. Use the calculator below to see your price before you book.</p>
     </div>
     <div class="rates rv">
       <button class="rate" data-t="fresh"><span class="label">Freshwater</span><span class="amt">$1<small>per gallon</small></span><p>Community tanks, planted tanks, goldfish and cichlid setups.</p></button>
       <button class="rate" data-t="salt"><span class="label">Saltwater &amp; reef</span><span class="amt">$5<small>per gallon</small></span><p>Fish only, reef and mixed reef systems, including sumps and equipment.</p></button>
+    </div>
+
+    <div class="labor">
+      <div class="rv">
+        <span class="label">Tanks 75 gallons and up</span>
+        <h3>Large tank labor</h3>
+        <p>Bigger tanks mean a lot more heavy water and waste to haul out and dump. That extra work is charged as labor, on top of the regular maintenance rate.</p>
+        <div class="split">
+          <div><b>Maintenance</b><span>Cleaning, filter changes and getting everything running the way it should. Usually done in under an hour.</span></div>
+          <div><b>Labor</b><span>Hauling and dumping the heavy water and waste. On a big tank that can add an extra hour or more.</span></div>
+        </div>
+      </div>
+      <div class="tiers rv">
+        <div class="tier"><div><span class="size">75 to 125 gallons</span><span class="sub">Added to the maintenance rate</span></div><span class="p">$1<small>per gallon</small></span></div>
+        <div class="tier"><div><span class="size">Over 125 gallons</span><span class="sub">Added to the maintenance rate</span></div><span class="p">$2<small>per gallon</small></span></div>
+        <p class="fine">Tanks under 75 gallons only pay the maintenance rate. Example: a 100 gallon freshwater tank is $100 maintenance plus $100 labor.</p>
+      </div>
     </div>
 
     <div class="calc">
@@ -369,7 +415,19 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
         <h3>Estimate your visit</h3>
         <p class="lead">Enter your tank size and see exactly what a service visit costs.</p>
         <div class="cf"><label for="cg">Tank size <b id="cgOut">55 gallons</b></label>
-          <div class="gal-row"><input type="number" id="cgn" min="1" max="1000" value="55" aria-label="Gallons"><input type="range" id="cg" min="5" max="300" step="5" value="55"></div></div>
+          <div class="gal-row"><input type="number" id="cgn" min="1" max="1000" value="55" aria-label="Gallons"><input type="range" id="cg" min="5" max="300" step="5" value="55"></div>
+          <p class="labnote" id="labNote"></p></div>
+        <div class="cf finder"><span class="fl">Not sure of your gallons? Measure your tank</span>
+          <div class="dims">
+            <label><span>Length</span><input type="number" id="dl" min="1" step="any" inputmode="decimal" placeholder="48" aria-label="Length in inches"></label>
+            <i>&times;</i>
+            <label><span>Width</span><input type="number" id="dw" min="1" step="any" inputmode="decimal" placeholder="18" aria-label="Width in inches"></label>
+            <i>&times;</i>
+            <label><span>Height</span><input type="number" id="dh" min="1" step="any" inputmode="decimal" placeholder="21" aria-label="Height in inches"></label>
+            <em>in</em>
+          </div>
+          <p class="dimout" id="dimOut">Measure the outside of the tank in inches and we'll work out the gallons for you.</p>
+        </div>
         <div class="cf"><span class="fl">Water type</span><div class="seg" id="ct"><button class="on" data-v="fresh">Freshwater</button><button data-v="salt">Saltwater &amp; reef</button></div></div>
         <div class="cf"><span class="fl">Distance from us</span><div class="seg" id="cd"><button class="on" data-v="10">Within 10 mi</button><button data-v="15">10 to 20 mi</button><button data-v="20">20+ mi</button></div></div>
         <div class="cf"><span class="fl">Add ons</span>
@@ -381,8 +439,8 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
         <span class="label">Your estimate</span>
         <div id="lines" style="margin-top:14px"></div>
         <div class="total"><span>Total per visit</span><b id="ctot">$65</b></div>
-        <a href="#quote" class="btn btn-solid">Book this visit <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
-        <p class="fine">Estimate only. Larger systems marked with a + may vary and are confirmed on site.</p>
+        <a href="#quote" class="btn btn-solid" id="book">Book this visit <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+        <p class="fine">Estimate only. Items marked "from" may vary and are confirmed on site.</p>
       </div>
     </div>
 
@@ -402,6 +460,8 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
         <div class="addon"><span>Call out fee, within 10 miles</span><span>$10</span></div>
         <div class="addon"><span>Call out fee, 10 to 20 miles</span><span>$15</span></div>
         <div class="addon"><span>Call out fee, 20+ miles</span><span>$20</span></div>
+        <div class="addon"><span>Large tank labor, 75 to 125 gallons</span><span>$1 per gallon</span></div>
+        <div class="addon"><span>Large tank labor, over 125 gallons</span><span>$2 per gallon</span></div>
         <div class="addon"><span>Tank remodel, up to 100 gallons</span><span>$25</span></div>
         <div class="addon"><span>Tank remodel, 100+ gallons</span><span>$40+</span></div>
         <div class="addon"><span>Tank scraping, up to 75 gallons</span><span>$30</span></div>
@@ -447,6 +507,8 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
     </div>
     <div class="faq rv">
       <details><summary>How often should my tank be serviced?<i></i></summary><p>Most freshwater tanks do well every two weeks. Reef systems and heavily stocked tanks usually need weekly care. We recommend a schedule after the first visit.</p></details>
+      <details><summary>Why is there a labor charge on bigger tanks?<i></i></summary><p>Maintenance and labor are two different things. Maintenance is cleaning, filter changes and getting everything working right, which usually takes under an hour. Labor is hauling and dumping all the heavy water and waste, and on tanks 75 gallons and up that can add an extra hour or more. Labor is $1 per gallon for 75 to 125 gallons and $2 per gallon over 125 gallons.</p></details>
+      <details><summary>How do I figure out how many gallons my tank is?<i></i></summary><p>Measure the length, width and height in inches, multiply them together and divide by 231. Or just type the numbers into the tank size finder in the pricing calculator and it does the math for you.</p></details>
       <details><summary>Do I need to be home during visits?<i></i></summary><p>No. Many clients provide a key or entry code. Notes are sent after every visit so you know exactly what was done.</p></details>
       <details><summary>Do you bring water and supplies?<i></i></summary><p>Yes. Conditioned water, test kits and cleaning supplies are included. Filter media and specialty additives are billed at cost.</p></details>
       <details><summary>Do you service businesses?<i></i></summary><p>Yes. Offices, lobbies, restaurants, clinics and retail. Larger and commercial systems are quoted after a site visit.</p></details>
@@ -474,7 +536,7 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
       <div><label for="p">Phone</label><input id="p" type="tel" required placeholder="(713) 555 0123"></div>
       <div><label for="e">Email</label><input id="e" type="email" placeholder="you@email.com"></div>
       <div><label for="z">Zip code</label><input id="z" placeholder="77002"></div>
-      <div><label for="ts">Tank size</label><select id="ts"><option>Up to 29 gallons</option><option>30 to 55 gallons</option><option>56 to 90 gallons</option><option>91 to 150 gallons</option><option>Over 150 gallons</option></select></div>
+      <div><label for="ts">Tank size</label><select id="ts"><option>Up to 29 gallons</option><option>30 to 74 gallons</option><option>75 to 125 gallons</option><option>Over 125 gallons</option><option>Not sure</option></select></div>
       <div><label for="wt">System</label><select id="wt"><option>Freshwater</option><option>Saltwater or reef</option><option>Pond</option><option>Not sure</option></select></div>
       <div class="full"><label for="m">Details</label><textarea id="m" placeholder="Regular maintenance, a deep clean, a new setup..."></textarea></div>
       <button type="submit" class="btn btn-solid full">Send request <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
@@ -509,7 +571,12 @@ function calc(){
   const base=g*RATE[cType];
   const rm=g>100?40:25, sc=g>75?50:30;
   $("crmP").textContent="$"+rm+(g>100?"+":"");$("cscP").textContent="$"+sc+(g>75?"+":"");
-  const L=[[(cType=="fresh"?"Freshwater":"Saltwater")+" service, "+g+" gal",base],["Call out fee",cDist]];
+  const lab=g>125?2:(g>=75?1:0);
+  const L=[[(cType=="fresh"?"Freshwater":"Saltwater")+" maintenance, "+g+" gal",base]];
+  if(lab)L.push(["Large tank labor, $"+lab+" per gal",g*lab]);
+  L.push(["Call out fee",cDist]);
+  const ln=$("labNote");ln.style.display=lab?"block":"none";
+  ln.textContent=lab?"Tanks "+(lab==2?"over 125":"75 to 125")+" gallons include hauling labor at $"+lab+" per gallon.":"";
   if($("crm").checked)L.push(["Tank remodel"+(g>100?" (from)":""),rm]);
   if($("csc").checked)L.push(["Tank scraping"+(g>75?" (from)":""),sc]);
   $("lines").innerHTML=L.map(l=>`<div class="line"><span>${l[0]}</span><span>${fmt(l[1])}</span></div>`).join("");
@@ -518,6 +585,21 @@ function calc(){
 $("cg").addEventListener("input",()=>{$("cgn").value=$("cg").value;calc()});
 $("cgn").addEventListener("input",()=>{$("cg").value=Math.min(300,$("cgn").value||5);calc()});
 ["crm","csc"].forEach(id=>$(id).addEventListener("change",calc));
+function dims(){
+  const l=parseFloat($("dl").value),w=parseFloat($("dw").value),h=parseFloat($("dh").value);
+  if(!(l>0&&w>0&&h>0)){$("dimOut").textContent="Measure the outside of the tank in inches and we'll work out the gallons for you.";return}
+  const g=Math.max(1,Math.round(l*w*h/231));
+  const gc=Math.min(1000,g);
+  $("cgn").value=gc;$("cg").value=Math.min(300,Math.max(5,gc));calc();
+  $("dimOut").innerHTML=l+" &times; "+w+" &times; "+h+" in is about <b>"+g+" gallons</b>."+(g>1000?" For a system this size, reach out for a custom quote.":" Your estimate is updated.");
+}
+["dl","dw","dh"].forEach(id=>$(id).addEventListener("input",dims));
+$("book").addEventListener("click",()=>{
+  const g=parseInt($("cgn").value)||0;
+  $("ts").selectedIndex=g<30?0:g<75?1:g<=125?2:3;
+  $("wt").selectedIndex=cType=="fresh"?0:1;
+  if(!$("m").value.trim())$("m").value="Website estimate: "+$("ctot").textContent+" per visit ("+g+" gallon "+(cType=="fresh"?"freshwater":"saltwater")+" tank)";
+});
 calc();
 
 const nav=document.getElementById("nav");
