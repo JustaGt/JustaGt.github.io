@@ -256,6 +256,10 @@ form input:focus,form select:focus,form textarea:focus{outline:0;border-color:va
 form input::placeholder,form textarea::placeholder{color:rgba(244,242,237,.3)}
 form .btn{justify-self:start;cursor:pointer;font-family:Manrope,sans-serif}
 .sent{display:none;grid-column:1/-1;color:#bfe3dc;font-weight:500}
+.qdims>label span{letter-spacing:0;text-transform:none;font-weight:500;opacity:.75;margin-left:.3rem}
+.qdims .dims{margin-top:.4rem}
+.qdims .dims label{margin:0}
+.qdims .dimout{margin-top:.8rem}
 @media(max-width:860px){.q{grid-template-columns:1fr;gap:3.5rem}form{grid-template-columns:1fr}}
 
 .mbar{display:none}
@@ -508,7 +512,7 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
     <div class="faq rv">
       <details><summary>How often should my tank be serviced?<i></i></summary><p>Most freshwater tanks do well every two weeks. Reef systems and heavily stocked tanks usually need weekly care. We recommend a schedule after the first visit.</p></details>
       <details><summary>Why is there a labor charge on bigger tanks?<i></i></summary><p>Maintenance and labor are two different things. Maintenance is cleaning, filter changes and getting everything working right, which usually takes under an hour. Labor is hauling and dumping all the heavy water and waste, and on tanks 75 gallons and up that can add an extra hour or more. Labor is $1 per gallon for 75 to 125 gallons and $2 per gallon over 125 gallons.</p></details>
-      <details><summary>How do I figure out how many gallons my tank is?<i></i></summary><p>Measure the length, width and height in inches, multiply them together and divide by 231. Or just type the numbers into the tank size finder in the pricing calculator and it does the math for you.</p></details>
+      <details><summary>How do I figure out how many gallons my tank is?<i></i></summary><p>Measure the length, width and height in inches, multiply them together and divide by 231. Or just type the numbers into the tank size finder in the pricing calculator or the quote form and it does the math for you.</p></details>
       <details><summary>Do I need to be home during visits?<i></i></summary><p>No. Many clients provide a key or entry code. Notes are sent after every visit so you know exactly what was done.</p></details>
       <details><summary>Do you bring water and supplies?<i></i></summary><p>Yes. Conditioned water, test kits and cleaning supplies are included. Filter media and specialty additives are billed at cost.</p></details>
       <details><summary>Do you service businesses?<i></i></summary><p>Yes. Offices, lobbies, restaurants, clinics and retail. Larger and commercial systems are quoted after a site visit.</p></details>
@@ -536,8 +540,18 @@ footer{background:var(--ink);color:var(--muted-d);border-top:1px solid var(--lin
       <div><label for="p">Phone</label><input id="p" type="tel" required placeholder="(713) 555 0123"></div>
       <div><label for="e">Email</label><input id="e" type="email" placeholder="you@email.com"></div>
       <div><label for="z">Zip code</label><input id="z" placeholder="77002"></div>
-      <div><label for="ts">Tank size</label><select id="ts"><option>Up to 29 gallons</option><option>30 to 74 gallons</option><option>75 to 125 gallons</option><option>Over 125 gallons</option><option>Not sure</option></select></div>
-      <div><label for="wt">System</label><select id="wt"><option>Freshwater</option><option>Saltwater or reef</option><option>Pond</option><option>Not sure</option></select></div>
+      <div class="full"><label for="wt">System</label><select id="wt"><option>Freshwater</option><option>Saltwater or reef</option><option>Pond</option><option>Not sure</option></select></div>
+      <div class="full qdims" id="qdims"><label for="ql">Tank size<span>in inches, measured on the outside</span></label>
+        <div class="dims" id="qdimRow">
+          <label><span>Length</span><input type="number" id="ql" min="1" step="any" inputmode="decimal" placeholder="48" aria-label="Tank length in inches"></label>
+          <i>&times;</i>
+          <label><span>Width</span><input type="number" id="qw" min="1" step="any" inputmode="decimal" placeholder="18" aria-label="Tank width in inches"></label>
+          <i>&times;</i>
+          <label><span>Height</span><input type="number" id="qh" min="1" step="any" inputmode="decimal" placeholder="21" aria-label="Tank height in inches"></label>
+          <em>in</em>
+        </div>
+        <p class="dimout" id="qOut">Type in your tank's length, width and height and we'll work out the gallons.</p>
+      </div>
       <div class="full"><label for="m">Details</label><textarea id="m" placeholder="Regular maintenance, a deep clean, a new setup..."></textarea></div>
       <button type="submit" class="btn btn-solid full">Send request <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
       <p class="fnote">Opens your email with everything filled in. Rather text? <a href="sms:+18329441935">832.944.1935</a></p>
@@ -596,8 +610,9 @@ function dims(){
 ["dl","dw","dh"].forEach(id=>$(id).addEventListener("input",dims));
 $("book").addEventListener("click",()=>{
   const g=parseInt($("cgn").value)||0;
-  $("ts").selectedIndex=g<30?0:g<75?1:g<=125?2:3;
   $("wt").selectedIndex=cType=="fresh"?0:1;
+  [["dl","ql"],["dw","qw"],["dh","qh"]].forEach(([a,b])=>{if($(a).value)$(b).value=$(a).value});
+  qdims();
   if(!$("m").value.trim())$("m").value="Website estimate: "+$("ctot").textContent+" per visit ("+g+" gallon "+(cType=="fresh"?"freshwater":"saltwater")+" tank)";
 });
 calc();
@@ -608,11 +623,24 @@ const onScroll=()=>nav.classList.toggle("solid",scrollY>innerHeight*.75);addEven
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -40px 0px"});
 document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(el.parentElement.querySelectorAll(":scope > .rv").length>2?(Array.from(el.parentElement.children).indexOf(el)%4)*80:0)+"ms";io.observe(el)});
 
+function qGal(){const l=parseFloat($("ql").value),w=parseFloat($("qw").value),h=parseFloat($("qh").value);return l>0&&w>0&&h>0?{l,w,h,g:Math.max(1,Math.round(l*w*h/231))}:null}
+function qdims(){
+  const pond=$("wt").value=="Pond";
+  $("qdimRow").style.display=pond?"none":"flex";
+  if(pond){$("qOut").textContent="Ponds are measured and quoted on site, so no tank size needed here.";return}
+  const d=qGal();
+  $("qOut").innerHTML=d?d.l+" &times; "+d.w+" &times; "+d.h+" in is about <b>"+d.g+" gallons</b>.":"Type in your tank's length, width and height and we'll work out the gallons.";
+}
+["ql","qw","qh"].forEach(id=>$(id).addEventListener("input",qdims));
+$("wt").addEventListener("change",qdims);
 document.getElementById("qf").addEventListener("submit",e=>{
   e.preventDefault();
   const v=id=>document.getElementById(id).value.trim();const sent=document.getElementById("sent");sent.style.display="block";
   if(!v("n")||!v("p")){sent.textContent="Please add your name and phone number.";return}
-  const body="Hi Alexander,\n\nI'd like a quote for aquarium service.\n\nName: "+v("n")+"\nPhone: "+v("p")+"\nEmail: "+(v("e")||"N/A")+"\nZip code: "+(v("z")||"N/A")+"\nTank size: "+v("ts")+"\nSystem: "+v("wt")+(v("m")?"\nDetails: "+v("m"):"");
+  const pond=v("wt")=="Pond",d=qGal();
+  if(!pond&&!d){sent.textContent="Please add your tank's length, width and height so we can quote the exact size.";$("ql").focus();return}
+  const size=pond?"Pond (measured on site)":d.l+" x "+d.w+" x "+d.h+" in (about "+d.g+" gallons)";
+  const body="Hi Alexander,\n\nI'd like a quote for aquarium service.\n\nName: "+v("n")+"\nPhone: "+v("p")+"\nEmail: "+(v("e")||"N/A")+"\nZip code: "+(v("z")||"N/A")+"\nTank size: "+size+"\nSystem: "+v("wt")+(v("m")?"\nDetails: "+v("m"):"");
   sent.textContent="Your email app should open now. If it doesn't, call or text 832.944.1935.";
   location.href="mailto:518alexlopez@gmail.com?subject="+encodeURIComponent("Quote request from website")+"&body="+encodeURIComponent(body);
 });
